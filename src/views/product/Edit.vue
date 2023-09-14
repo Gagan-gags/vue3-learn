@@ -113,7 +113,7 @@ export default defineComponent({
       if (this.validateForm()) {
         try {
           const objIndex = this.mergedData.findIndex((obj => obj.id === productId));
-=          // Update the item in the array
+          // Update the item in the array
           if (objIndex !== -1) {
             // this.mergedData[objIndex].title = this.formData.title;
             this.mergedData[objIndex] = { ...this.mergedData[objIndex], ...this.formData };
