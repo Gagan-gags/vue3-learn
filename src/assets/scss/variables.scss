@@ -1,0 +1,44 @@
+$theme-primary: #383838;
+$theme-secondary: #9D9D9D;
+$theme-bs-color: #DBDBDB;
+$theme-bg: #D9D9D9;
+$white: #ffffff;
+$black: #000000;
+$body-color: #F6F6F6;
+
+$th-color: #525252;
+$td-color: #5A5A5A; 
+
+
+// FONTS and TEXT STYLE
+$fontnormal: 16px !default;
+$fontsmall: 14px !default;
+$lineheight: 1.5 !default;
+$fontawesome: FontAwesome !default;
+$spacing: 5px !default;
+
+//TRANSITION EFFECT
+$trasition_all: all 0.3s ease-in-out 0s !default;
+
+// Display
+$ib: inline-block !default;
+$b: block !default;
+
+//placeholder for input using 
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content
+    }
+
+    :-moz-placeholder {
+        @content
+    }
+
+    ::-moz-placeholder {
+        @content
+    }
+
+    :-ms-input-placeholder {
+        @content
+    }
+}

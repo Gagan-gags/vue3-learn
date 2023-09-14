@@ -1,0 +1,143 @@
+@mixin transition($settings) {
+  -webkit-transition: $settings;
+  -moz-transition: $settings;
+  -ms-transition: $settings;
+  -o-transition: $settings;
+  transition: $settings;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
+//position mixin here
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+
+    @if $i and $i + 1 <=length($args) and type-of(nth($args, $i + 1)) ==number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+
+  position: $position;
+}
+
+// Positioning helpers
+@mixin absolute($args: "") {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args: "") {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args: "") {
+  @include position(relative, $args);
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//sizes mixin here
+@mixin square($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-row {
+  @include flex-center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+/* SCSS */
+//. ARROW WITH FOUR OPTIONAL DIRECTIONS
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+
+  @if ($direction ==left) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if ($direction ==right) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if ($direction ==down) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+// Media quries mixin
+@mixin media($size) {
+  @if $size ==phone-only {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $size ==tablet-portrait-up {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $size ==tablet-landscape-up {
+    @media (min-width: 900px) {
+      @content;
+    }
+  } @else if $size ==desktop-up {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $size ==big-desktop-up {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  }
+}
