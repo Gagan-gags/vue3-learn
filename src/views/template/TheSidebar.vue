@@ -21,11 +21,11 @@
           <span class="icon-growers-icon"></span> <span>Product</span>
         </router-link>
       </li>
-      <!-- <li class="nav-item">
-        <router-link to="/" class="nav-link">
-          <span class="icon-work-order"></span> <span>Work Orders</span>
+      <li class="nav-item">
+        <router-link :to="{ name: 'learning' }" class="nav-link">
+          <span class="icon-work-order"></span> <span>Learning vue</span>
         </router-link>
-      </li>     -->
+      </li>    
     </ul>
   </div>
 </template>

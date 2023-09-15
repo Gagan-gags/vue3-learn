@@ -6,7 +6,7 @@ import ProductRouter from '@/views/product/ProductRouter.vue';
 import ProductListView from '@/views/product/ProductList.vue';
 import ProductCreateView from '@/views/product/Create.vue';
 import ProductEditView from '@/views/product/Edit.vue';
-
+import LearningView from '@/views/Learning.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,7 +14,12 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+    },
+    {
+      path: '/Learning',
+      name: 'learning',
+      component: LearningView
     },
     {
       path: '/about',
