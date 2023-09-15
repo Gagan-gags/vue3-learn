@@ -5,8 +5,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
- 
-  base: '/vue3-learn/', // Replace 'your-repo-name' with your GitHub repository name
+  // /vue3-learn
+  publicPath: process.env.NODE_ENV === "prod" ? "/vue3-learn/" : "/",
 
   plugins: [
     vue(),
